@@ -1,0 +1,161 @@
+/* index.css or App.css */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  overflow: hidden;
+  /* color: white; */
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  color: white;
+  z-index: 100;
+  min-width: 250px;
+  font-size: 14px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.controls h3 {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ff6b35;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.controls p {
+  margin: 8px 0;
+  color: #cccccc;
+  line-height: 1.4;
+}
+
+.stats {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats > div {
+  margin: 6px 0;
+  color: #aaaaaa;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stats > div::before {
+  content: "•";
+  color: #ff6b35;
+  font-weight: bold;
+}
+
+/* Loading spinner for Suspense fallback */
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 18px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .controls {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    min-width: auto;
+    padding: 15px;
+  }
+  
+  .controls h3 {
+    font-size: 16px;
+  }
+  
+  .controls p,
+  .stats > div {
+    font-size: 12px;
+  }
+}
+
+/* Custom scrollbar for any overflow */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 107, 53, 0.6);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 107, 53, 0.8);
+}
+
+/* Animation for controls on load */
+.controls {
+  animation: slideInFromRight 0.8s ease-out;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Glow effect for fire-related text */
+.controls h3 {
+  text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+}
+
+/* Focus styles for accessibility */
+.controls:focus-within {
+  outline: 2px solid #ff6b35;
+  outline-offset: 2px;
+}
